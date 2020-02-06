@@ -3,3 +3,5 @@
  */
 
 rootProject.name = 'java-informal-essay'
+include 'algorithm'
+
