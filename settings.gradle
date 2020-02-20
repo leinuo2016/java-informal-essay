@@ -4,4 +4,5 @@
 
 rootProject.name = 'java-informal-essay'
 include 'algorithm'
+include 'note'
 
