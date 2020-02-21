@@ -32,6 +32,10 @@ public class LinkListApp {
         link.display();
         System.out.println("after remove data 3");
         linkList.displayList();
+        linkList.deleteFirst();
+       // link.display();
+        System.out.println("after deleteFirst");
+        linkList.displayList();
         System.out.println("remove data");
         while(!linkList.isEmpty()){
             link = linkList.deleteFirst();

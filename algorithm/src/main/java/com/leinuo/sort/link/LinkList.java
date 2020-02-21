@@ -26,6 +26,9 @@ public class LinkList {
 
     public Link deleteFirst(){
         Link link = first;
+        if(isEmpty()){
+            return null;
+        }
          first= first.next;
         return link;
     }
