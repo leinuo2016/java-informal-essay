@@ -6,6 +6,8 @@ import java.util.Arrays;
  * Create by leinuo on 2020/2/26 下午4:17
  * <p>
  * qq:1321404703 https://github.com/leinuo2016
+ *
+ * 希尔排序
  */
 public class ArraySh {
     private int[] theArray;
