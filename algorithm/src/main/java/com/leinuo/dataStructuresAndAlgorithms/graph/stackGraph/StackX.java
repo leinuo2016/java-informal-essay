@@ -1,4 +1,4 @@
-package com.leinuo.dataStructuresAndAlgorithms.graph;
+package com.leinuo.dataStructuresAndAlgorithms.graph.stackGraph;
 
 /**
  * Create by leinuo on 2020/3/4 下午4:41

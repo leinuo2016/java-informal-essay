@@ -1,4 +1,6 @@
-package com.leinuo.dataStructuresAndAlgorithms.graph;
+package com.leinuo.dataStructuresAndAlgorithms.graph.stackGraph;
+
+import com.leinuo.dataStructuresAndAlgorithms.graph.Vertex;
 
 /**
  * Create by leinuo on 2020/3/4 下午5:01
@@ -56,6 +58,29 @@ public class Graph {
             vertexList[j].wasVisited = false;
         }
     }
+
+    //最小生成树
+    public void mst(){
+        vertexList[0].wasVisited = true;
+        theStack.push(0);
+        while (!theStack.isEmpty()){
+            int currentVertex = theStack.peek();
+            int v = getAdjUnvisitedVertex(theStack.peek());
+            if(v==-1)
+                theStack.pop();
+            else {
+                vertexList[v].wasVisited = true;
+                theStack.push(v);
+                displayVertex(currentVertex);
+                displayVertex(v);
+                System.out.print(" ");
+            }
+        }
+        for(int j=0;j<nVerts;j++){
+            vertexList[j].wasVisited = false;
+        }
+    }
+
 
     private int getAdjUnvisitedVertex(int v) {
         for (int j = 0; j < nVerts ; j++) {
