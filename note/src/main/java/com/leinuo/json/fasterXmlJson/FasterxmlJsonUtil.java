@@ -27,9 +27,7 @@ public class FasterxmlJsonUtil {
     public static <T> T jsonToBean(String jsonStr,Class<T> bean) {
         try {
             return objectMapper.readValue(jsonStr,bean);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

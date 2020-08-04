@@ -17,6 +17,7 @@ public class RegexApp {
         System.out.println(phoneRegex1(phone));
         phone = "18661925010";
         System.out.println(phoneRegex1(phone));
+
     }
 
     /**

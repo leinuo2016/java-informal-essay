@@ -13,5 +13,9 @@ public class App {
         List<String> list = new ArrayList<>(Arrays.asList(str.split(",")));
         list.add("6565");
         System.out.println("运行OK！");
+
+        String url = "http://qqsl-xn-cloud-public.oss-cn-hangzhou.aliyuncs.com/dev/panorama/1526691986621.tiles/thumb.jpg";
+        String key = url.substring(url.indexOf("dev/"));
+        System.out.println(key);
     }
 }
