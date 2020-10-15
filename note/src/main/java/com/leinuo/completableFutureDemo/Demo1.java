@@ -239,7 +239,7 @@ public class Demo1 {
         String original = "Message";
         CompletableFuture cf = CompletableFuture.completedFuture(original)
                 .thenApplyAsync(s -> s.toUpperCase())
-                .thenCombine(CompletableFuture.completedFuture(original).thenApplyAsync(s -> s.toLowerCase()),
+                .thenCombine(CompletableFuture.completedFuture(original).thenApplyAsync(String::toLowerCase),
                         (s1, s2) -> s1 + s2);
         System.out.println(cf.join());
     }

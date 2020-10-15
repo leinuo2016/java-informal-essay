@@ -15,6 +15,8 @@ import java.util.Set;
 public class MapApp {
 
     public static void main(String[] args) {
+        testMap();
+        System.out.println("test------------------------");
         testMap2();
 
     }
@@ -23,8 +25,9 @@ public class MapApp {
         Map<String, Integer> map = ImmutableMap.of("a", 1, "b", 1, "c", 2);
         SetMultimap<String, Integer> multimap = Multimaps.forMap(map);
         System.out.println(multimap.get("a"));
+        //将key value调换,重新组成map
         Multimap<Integer, String> inverse = Multimaps.invertFrom(multimap,HashMultimap.create());
-        System.out.println(inverse.get(1));
+        System.out.println(inverse.get(2));
 
         Map<String, String> map1 = ImmutableMap.of("a", "1", "b", "1", "c", "2");
         SetMultimap<String, String> multimap1 = Multimaps.forMap(map1);
@@ -43,6 +46,14 @@ public class MapApp {
 
         Map<String, String> map1 = ImmutableMap.of("a", "1", "b", "1", "c", "2");
         System.out.println(map1.get("a"));
+
+    }
+
+
+    public void test(){
+        //如果键值对超过5对ImmutableMap.of将不再支持,只能用builder模式添加
+        Map<String, String> map =  new ImmutableMap.Builder<String, String>()
+                .put("id", "编号").put("code", "编码").put("name", "名称").put("level","级别").put( "remark","备注").put("unit", "管理单位").build();
 
     }
 
