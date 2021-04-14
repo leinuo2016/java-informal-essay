@@ -353,7 +353,9 @@ public class Demo1 {
         //thenCombineAsync();
         //anyOf();
         //allOf();
-        allOfAsync();
+        //allOfAsync();
+
+        System.out.println(Runtime.getRuntime().availableProcessors());
 
     }
 

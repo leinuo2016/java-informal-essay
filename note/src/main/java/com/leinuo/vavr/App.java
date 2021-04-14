@@ -3,12 +3,13 @@ package com.leinuo.vavr;
 import io.vavr.*;
 import io.vavr.collection.List;
 import io.vavr.collection.Map;
+import io.vavr.collection.Queue;
 import io.vavr.collection.Stream;
 import io.vavr.control.Either;
+import io.vavr.control.Option;
 import io.vavr.control.Try;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import static io.vavr.API.*;
 
@@ -153,7 +154,7 @@ public class App {
      */
     public static void curry(){
         Function3<Integer, Integer, Integer, Integer> function3 = (v1, v2, v3)
-                -> (v1 + v2) * v3;
+                -> (v3 + v2) * v1;
         int result =
                 function3.curried().apply(1).curried().apply(2).curried().apply(2);
         System.out.println(result);
@@ -189,11 +190,26 @@ public class App {
                 .toList();
         System.out.println(tuple2List);
 // 输出 List((1, a), (2, b))
+
+        System.out.println(Stream.range(1,3).filter(i -> i % 2 == 0).asJava().toString());
     }
 
-    public static void propertyTest(){
-        //System.out.println(Stream.from(1).filter(i -> i % 2 == 0).asJava().toString());
-        System.out.println(Stream.range(1,3).filter(i -> i % 2 == 0).asJava().toString());
+    public static void queueTest(){
+        Queue<Integer> queue = Queue.of(4,5,6,7);
+        System.out.println(queue.dequeue()._1);
+
+        System.out.println(queue.enqueue(50));
+
+        System.out.println(Queue.of(1).dequeueOption().get()._1());
+    }
+
+    public static void optionTest(){
+        Option<String> maybeFoo = Option.of("fdf");
+        try {
+            System.out.println(maybeFoo.map(s -> s.toUpperCase() + "bar").get());
+        } catch (NullPointerException e) {
+            // this is clearly not the correct approach
+        }
     }
 
 
@@ -201,6 +217,7 @@ public class App {
     public static void main(String[] args) {
 
        // patternTest(2);
+
        // patternTest(6);
 
        // System.out.println(join("22","33","44"));
@@ -217,7 +234,9 @@ public class App {
 
       //  streamTest();
 
-        propertyTest();
+      //  queueTest();
+
+        optionTest();
 
       //   curry();
 
